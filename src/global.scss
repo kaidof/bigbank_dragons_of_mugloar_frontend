@@ -1,0 +1,89 @@
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #555;
+  border: none;
+  overflow: visible;
+  padding: 8px 15px;
+  background-color: #365565;
+  color: #fff;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: #3d6072;
+  }
+
+  &:disabled {
+    background-color: #717d82;
+    color: #e4e4e4;
+    cursor: auto;
+  }
+}
+
+.loading {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.4);
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition-property: background-color opacity;
+  transition-duration: 500ms;
+  transition-delay: 500ms;
+  transition-timing-function: ease;
+  visibility: hidden;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  & > div {
+    font-weight: bold;
+    font-size: 28px;
+    color: #000;
+    text-shadow: 1px 1px 1px #fff;
+  }
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+
+  #message {
+    flex: 1 1 80%;
+  }
+
+  #shop {
+    flex: 1 1 340px;
+
+    @media (min-width: 800px) {
+      border-left: 1px solid #ddd;
+    }
+  }
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+  }
+}

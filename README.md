@@ -1,4 +1,4 @@
-# game_web
+# Dragons Of Mugloar frontend
 
 ## Project setup
 ```
