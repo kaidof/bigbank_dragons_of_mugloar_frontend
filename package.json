@@ -1,11 +1,11 @@
 {
-  "name": "game_web",
+  "name": "bigbank_dragons_of_mugloar_frontend",
   "version": "1.0.0",
   "author": "Kaido Ferents <kaidof@yahoo.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git://github.com/kaidof/bigbank_dragons_of_mugloar_frontend.git"
+    "url": "https://github.com/kaidof/bigbank_dragons_of_mugloar_frontend.git"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
