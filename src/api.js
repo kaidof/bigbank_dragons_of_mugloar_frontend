@@ -10,8 +10,8 @@ const api = axios.create({
   }
 });
 
-// Set timeout to 0.5 sec
-api.defaults.timeout = 500;
+// Set timeout to 5 sec
+api.defaults.timeout = 5000;
 
 api.interceptors.request.use(config => {
   // Show loading overlay
@@ -21,25 +21,26 @@ api.interceptors.request.use(config => {
 });
 
 api.interceptors.response.use(res => {
-  // Hidde loading overlay
+  // Hide loading overlay
   EventBus.$emit('overlay', false);
   return res
 }, error => {
   let errorMsg;
+  let errorStr = error.toString();
 
   if (error && error.response && error.response.status >= 400) {
     if (error.response.data && error.response.data.hasOwnProperty('error')) {
-      errorMsg = `1Server error:\n${error.response.data.error}`;
-    } else if (error === 'Error: Network Error') {
-      errorMsg = `${error.data}`;
+      errorMsg = `Server error:\n${error.response.data.error}`;
     } else {
-      errorMsg = `2Server error:\n${error.data}`;
+      errorMsg = `Server error:\n${error.data}`;
     }
+  } else {
+    errorMsg = errorStr;
   }
 
   EventBus.$emit('http-error', errorMsg);
 
-  // Hidde loading overlay
+  // Hide loading overlay
   EventBus.$emit('overlay', false);
 
   return Promise.reject(error.response)

@@ -14,7 +14,7 @@
       >Buy</button>
 
       <span class="cost" title="Cost">{{ item.cost }}</span>
-      <span class="bought" title="How many times item was bought">
+      <span class="bought" title="Purchased item quantity">
         {{ getGameShopBoughtItems.hasOwnProperty(item.id) ? getGameShopBoughtItems[item.id] : 0 }}
       </span>
       <span class="name">{{ item.name }}</span>

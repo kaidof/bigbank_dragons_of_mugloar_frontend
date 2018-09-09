@@ -132,7 +132,7 @@ export default new Vuex.Store({
     SOLVE_MESSAGE: ({ commit, state }, id) => {
       Api.solveMessages(state.gameData.gameId, id).then(res => commit('SOLVE_MESSAGE', { id, data: res.data })).catch(e => {
         // Change message if error response contains error
-        if (e.data && e.data.hasOwnProperty('error')) {
+        if (e && e.data && e.data.hasOwnProperty('error')) {
           commit('MODIFY_MESSAGE_BY_ID', {id, data: { done: true, msg: e.data.error, fail: true }});
         }
       })
